@@ -13,6 +13,7 @@ class App:
         pg.init()
 
         # Настройки окна
+        self._color_fon = (20, 20, 20)
         self.width = 640
         self.heigth = 480
         self.caption = 'Ловкая кнопка'
@@ -37,11 +38,24 @@ class App:
 
         [self._quit() for event in pg.event.get() if event.type == pg.QUIT]
 
+    
+    def _draw(self):
+        """Отрисовка объектов в окне"""
+        self.window.fill(self._color_fon)
+
+    def _update_position(self):
+        """Обновляет положение объектов в окне"""
+        pass
 
 
     def run(self):
         """Основной цикл приложения"""
         while True:
             self._check_events()
-            
+            self._draw()
+
+
+    
+
+
     
