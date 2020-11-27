@@ -43,4 +43,5 @@ class App:
         """Основной цикл приложения"""
         while True:
             self._check_events()
+            
     
