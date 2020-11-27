@@ -23,3 +23,24 @@ class App:
 
         # Экземпляр кнопки
         self.button = button.Button(self.window, 60, 20, (20, 20, 20))
+
+
+    def _quit(self):
+        """Завершение программы"""
+        pg.quit()
+        quit()
+
+
+    
+    def _check_events(self):
+        """Обработка событий приложения"""
+
+        [self._quit() for event in pg.event.get() if event.type == pg.QUIT]
+
+
+
+    def run(self):
+        """Основной цикл приложения"""
+        while True:
+            self._check_events()
+    
