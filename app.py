@@ -26,7 +26,7 @@ class App:
         pg.display.set_caption(self.caption)
 
         # Экземпляр кнопки
-        self.button = button.Button(self.window, 90, 30, (220, 20, 20))
+        self.button = button.Button(self.window, 110, 30, (220, 20, 20))
 
 
     def _quit(self):
