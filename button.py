@@ -25,21 +25,27 @@ class Button:
         self._pos_x = random.randrange(0, pg.display.get_window_size()[0] - self._width)
         self._pos_y = random.randrange(0, pg.display.get_window_size()[1] - self._height)
 
-        self._object = pg.Surface((self._width, self._height))
-        self._rect = self._object.get_rect(topleft=(self._pos_x, self._pos_y))
-        self._object.fill(self._color)
+        self.btn = pg.Surface((self._width, self._height))
+        self.btn.fill(self._color)
 
-        self.font = pg.font.SysFont()
+        self.rect_btn = self.btn.get_rect(topleft=(self._pos_x, self._pos_y))
+
+        self.font = pg.font.SysFont(None, 24)
+        self.render = self.font.render('Нажми меня!', True, (50, 50, 50))
+
+        self.rect_render = self.render.get_rect(center=(self._width//2, self._height//2))
+        
+        self.btn.blit(self.render, self.rect_render)
 
     
     def draw(self):
         """Отрисовка кнопки"""
-        self.window.blit(self._object, self._rect)
+        self.window.blit(self.btn, self.rect_btn)
     
     def update_position(self):
         """Обновление положния"""
         self.check_collision_cursor()
-        self._rect = self._object.get_rect(topleft=(self._pos_x, self._pos_y))
+        self.rect_btn = self.btn.get_rect(topleft=(self._pos_x, self._pos_y))
         
     
     def set_position(self):
